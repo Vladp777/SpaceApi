@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "sI8m9V9MFbfPWRkTokoAWnJqe4KDlB/2yHwFmldVymc=",
+  "Source": "NasaApi",
+  "BasePath": "_content/NasaApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
