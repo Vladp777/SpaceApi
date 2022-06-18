@@ -19,11 +19,18 @@ namespace NasaApi.Clients
             _httpClient.BaseAddress = new Uri(_adrres);
         }
 
-        public async Task<ImageNasa> GetImageAsync()
+        public async Task<APODmodel> GetAPODAsync()
         {
             var response = await _httpClient.GetAsync($"/planetary/apod?api_key={_apikey}");
             var image = response.Content.ReadAsStringAsync().Result;
-            var result = JsonConvert.DeserializeObject<ImageNasa>(image);
+            var result = JsonConvert.DeserializeObject<APODmodel>(image);
+            return result;
+        }
+        public async  Task<APODmodel> GetAPODAsync(string date)
+        {
+            var response = await _httpClient.GetAsync($"/planetary/apod?api_key={_apikey}&date={date}");
+            var image = response.Content.ReadAsStringAsync().Result;
+            var result = JsonConvert.DeserializeObject<APODmodel>(image);
             return result;
         }
 

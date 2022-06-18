@@ -5,15 +5,27 @@ namespace NasaApi.Controllers
 {
     [ApiController]
     [Route("[controller]")] 
-    public class NASAinformationController : ControllerBase
+    public class APODController : ControllerBase
     {
-        [HttpGet(Name = "NASAinformation")]
+        [HttpGet(Name = "APOD")]
 
-        public ImageNasa info()
+        public APODmodel info()
         {
             NasaClient nasaClient = new NasaClient();
-            return nasaClient.GetImageAsync().Result;
+            return nasaClient.GetAPODAsync().Result;
         }
+    }
 
+    [ApiController]
+    [Route("[controller]")]
+    public class APODbyDateController : ControllerBase
+    {
+        [HttpGet(Name = "APODbyDate")]
+
+        public APODmodel info(string date)
+        {
+            NasaClient nasaClient = new NasaClient();
+            return nasaClient.GetAPODAsync(date).Result;
+        }
     }
 }

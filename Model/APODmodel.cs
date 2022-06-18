@@ -1,6 +1,6 @@
 ﻿namespace NasaApi.Model
 {
-    public class ImageNasa
+    public class APODmodel
     {
         public string date { get; set; }
         public string explanation { get; set; }
