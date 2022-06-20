@@ -9,7 +9,7 @@ namespace NasaApi.Controllers
     {
         [HttpGet(Name = "APOD")]
 
-        public APODmodel info()
+        public APOD info()
         {
             NasaClient nasaClient = new NasaClient();
             return nasaClient.GetAPODAsync().Result;
@@ -22,7 +22,7 @@ namespace NasaApi.Controllers
     {
         [HttpGet(Name = "APODbyDate")]
 
-        public APODmodel info(string date)
+        public APOD info(string date)
         {
             NasaClient nasaClient = new NasaClient();
             return nasaClient.GetAPODAsync(date).Result;

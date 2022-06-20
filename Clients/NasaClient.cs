@@ -1,6 +1,5 @@
 ﻿using NasaApi.Constant;
 using NasaApi.Model;
-
 using Newtonsoft.Json;
 
 namespace NasaApi.Clients
@@ -19,20 +18,30 @@ namespace NasaApi.Clients
             _httpClient.BaseAddress = new Uri(_adrres);
         }
 
-        public async Task<APODmodel> GetAPODAsync()
+        public async Task<APOD> GetAPODAsync()
         {
             var response = await _httpClient.GetAsync($"/planetary/apod?api_key={_apikey}");
-            var image = response.Content.ReadAsStringAsync().Result;
-            var result = JsonConvert.DeserializeObject<APODmodel>(image);
+            var content = response.Content.ReadAsStringAsync().Result;
+            var result = JsonConvert.DeserializeObject<APOD>(content);
             return result;
         }
-        public async  Task<APODmodel> GetAPODAsync(string date)
+        public async  Task<APOD> GetAPODAsync(string date)
         {
             var response = await _httpClient.GetAsync($"/planetary/apod?api_key={_apikey}&date={date}");
-            var image = response.Content.ReadAsStringAsync().Result;
-            var result = JsonConvert.DeserializeObject<APODmodel>(image);
+            var content = response.Content.ReadAsStringAsync().Result;
+            var result = JsonConvert.DeserializeObject<APOD>(content);
             return result;
         }
+        public async Task<MarsRoverPhotos> GetRoverPhotosAsync(string date, string camera = "all", int page = 1)
+        {
+            var response = await _httpClient.GetAsync($"/mars-photos/api/v1/rovers/curiosity/photos?earth_date={date}&camera={camera}&page={page}&api_key={_apikey}");
+            if (camera == "all")
+                response = await _httpClient.GetAsync($"/mars-photos/api/v1/rovers/curiosity/photos?earth_date={date}&page={page}&api_key={_apikey}");
 
+            var content = response.Content.ReadAsStringAsync().Result;
+            var result = JsonConvert.DeserializeObject<MarsRoverPhotos>(content);
+            return result;
+        }
+        
     }
 }
