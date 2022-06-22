@@ -10,7 +10,7 @@ namespace NasaApi.Controllers
     {
         [HttpGet(Name = "MarsRoverPhotos")]
 
-        public MarsRoverPhotos MarsPhotos(string date, string camera = "all", int page = 1)
+        public MarsRoverPhotos MarsPhotos( string date, string camera = "all", int page = 1)
         {
             NasaClient client = new NasaClient();
             return client.GetRoverPhotosAsync(date, camera, page).Result;
