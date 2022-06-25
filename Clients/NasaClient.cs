@@ -1,8 +1,8 @@
-﻿using NasaApi.Constant;
-using NasaApi.Model;
+﻿using SpaceApi.Constant;
+using SpaceApi.Model;
 using Newtonsoft.Json;
 
-namespace NasaApi.Clients
+namespace SpaceApi.Clients
 {
     public class NasaClient
     {

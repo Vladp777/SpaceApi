@@ -1,28 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NasaApi.Model;
-using NasaApi.Clients;
-namespace NasaApi.Controllers
+using SpaceApi.Model;
+using SpaceApi.Clients;
+namespace SpaceApi.Controllers
 {
     [ApiController]
     [Route("[controller]")] 
     public class APODController : ControllerBase
     {
-        [HttpGet(Name = "APOD")]
+        [HttpGet("apod")]
 
         public APOD info()
         {
             NasaClient nasaClient = new NasaClient();
             return nasaClient.GetAPODAsync().Result;
         }
-    }
 
-    [ApiController]
-    [Route("[controller]")]
-    public class APODbyDateController : ControllerBase
-    {
-        [HttpGet(Name = "APODbyDate")]
+        [HttpGet("apodbydate")]
 
-        public APOD info(string date)
+        public APOD info1(string date)
         {
             NasaClient nasaClient = new NasaClient();
             return nasaClient.GetAPODAsync(date).Result;

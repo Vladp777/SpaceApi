@@ -1,4 +1,4 @@
-﻿namespace NasaApi.Constant
+﻿namespace SpaceApi.Constant
 {
     public class Constants
     {

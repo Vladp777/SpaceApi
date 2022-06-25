@@ -1,4 +1,4 @@
-﻿namespace NasaApi.Model
+﻿namespace SpaceApi.Model
 {
     public class APOD
     {
