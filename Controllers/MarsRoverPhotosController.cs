@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NasaApi.Model;
-using NasaApi.Clients;
+using SpaceApi.Model;
+using SpaceApi.Clients;
 
-namespace NasaApi.Controllers
+namespace SpaceApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class MarsRoverPhotosController : ControllerBase
     {
-        [HttpGet(Name = "MarsRoverPhotos")]
+        [HttpGet("getMarsPhotos")]
 
-        public MarsRoverPhotos MarsPhotos(string date, string camera = "all", int page = 1)
+        public MarsRoverPhotos MarsPhotos( string date, string camera = "all", int page = 1)
         {
             NasaClient client = new NasaClient();
             return client.GetRoverPhotosAsync(date, camera, page).Result;

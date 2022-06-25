@@ -6,6 +6,7 @@ D:\GitRep\NasaApi\bin\Debug\net6.0\NasaApi.runtimeconfig.json
 D:\GitRep\NasaApi\bin\Debug\net6.0\NasaApi.dll
 D:\GitRep\NasaApi\bin\Debug\net6.0\NasaApi.pdb
 D:\GitRep\NasaApi\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\GitRep\NasaApi\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\GitRep\NasaApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\GitRep\NasaApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\GitRep\NasaApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -25,4 +26,3 @@ D:\GitRep\NasaApi\obj\Debug\net6.0\refint\NasaApi.dll
 D:\GitRep\NasaApi\obj\Debug\net6.0\NasaApi.pdb
 D:\GitRep\NasaApi\obj\Debug\net6.0\NasaApi.genruntimeconfig.cache
 D:\GitRep\NasaApi\obj\Debug\net6.0\ref\NasaApi.dll
-D:\GitRep\NasaApi\bin\Debug\net6.0\Newtonsoft.Json.dll

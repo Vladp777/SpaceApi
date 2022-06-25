@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitRep\\NasaApi\\NasaApi.csproj": {}
+    "D:\\GitRep\\SpaceApi\\NasaApi.csproj": {}
   },
   "projects": {
-    "D:\\GitRep\\NasaApi\\NasaApi.csproj": {
+    "D:\\GitRep\\SpaceApi\\NasaApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitRep\\NasaApi\\NasaApi.csproj",
+        "projectUniqueName": "D:\\GitRep\\SpaceApi\\NasaApi.csproj",
         "projectName": "NasaApi",
-        "projectPath": "D:\\GitRep\\NasaApi\\NasaApi.csproj",
-        "packagesPath": "C:\\Users\\BuyU\\.nuget\\packages\\",
-        "outputPath": "D:\\GitRep\\NasaApi\\obj\\",
+        "projectPath": "D:\\GitRep\\SpaceApi\\NasaApi.csproj",
+        "packagesPath": "C:\\Users\\Vlad\\.nuget\\packages\\",
+        "outputPath": "D:\\GitRep\\SpaceApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\BuyU\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Vlad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,7 +46,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.3.1, )"
             }
           },
           "imports": [
