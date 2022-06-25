@@ -26,3 +26,5 @@ D:\GitRep\SpaceApi\obj\Debug\net6.0\refint\SpaceApi.dll
 D:\GitRep\SpaceApi\obj\Debug\net6.0\SpaceApi.pdb
 D:\GitRep\SpaceApi\obj\Debug\net6.0\SpaceApi.genruntimeconfig.cache
 D:\GitRep\SpaceApi\obj\Debug\net6.0\ref\SpaceApi.dll
+D:\GitRep\SpaceApi\bin\Debug\net6.0\AWSSDK.Core.dll
+D:\GitRep\SpaceApi\bin\Debug\net6.0\AWSSDK.DynamoDBv2.dll
