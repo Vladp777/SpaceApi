@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "PkUGkyapJYjfLvoe4jHI9FTOEhGrrsrZP5bzVOPBx5ibhUsKmLQmtnQU3fdiwQBW8tIx0FUs5RTPE3Cau6263A==",
+  "dgSpecHash": "8jNupPsHDRMVK1C6OyT1rZCl4dBAMV+4Y7E96K/sRH4sJ5AGdZHwYHwzHeU0Wj3BhNyNWs5+JmGiVkzNqSWoig==",
   "success": true,
   "projectFilePath": "D:\\GitRep\\SpaceApi\\SpaceApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Vlad\\.nuget\\packages\\awssdk.core\\3.7.12.3\\awssdk.core.3.7.12.3.nupkg.sha512",
+    "C:\\Users\\Vlad\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.3.51\\awssdk.dynamodbv2.3.7.3.51.nupkg.sha512",
     "C:\\Users\\Vlad\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Vlad\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\Vlad\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",

@@ -8,11 +8,31 @@
     ".NETCoreApp,Version=v6.0": {
       "SpaceApi/1.0.0": {
         "dependencies": {
+          "AWSSDK.DynamoDBv2": "3.7.3.51",
           "Newtonsoft.Json": "13.0.1",
           "Swashbuckle.AspNetCore": "6.3.1"
         },
         "runtime": {
           "SpaceApi.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.7.12.3": {
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.12.3"
+          }
+        }
+      },
+      "AWSSDK.DynamoDBv2/3.7.3.51": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.12.3"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.3.51"
+          }
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
@@ -77,6 +97,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.7.12.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-l2P2Tf6FE4eDDAbt6wNMVcPfmJaURMo8n/IO/oWvFi56WdfrQmYur+/QNh4hsRt6DT6CnNbpLpGcMQNLUlOmOQ==",
+      "path": "awssdk.core/3.7.12.3",
+      "hashPath": "awssdk.core.3.7.12.3.nupkg.sha512"
+    },
+    "AWSSDK.DynamoDBv2/3.7.3.51": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SjHpCRpqwdYtK+Ezdr+7JrdmEt9ZqCoaMQDY66eVOeHoUkHe372txf13m0FdVITABRp67aUBhe/Bf6FHWUT02w==",
+      "path": "awssdk.dynamodbv2/3.7.3.51",
+      "hashPath": "awssdk.dynamodbv2.3.7.3.51.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
       "type": "package",

@@ -6,7 +6,7 @@ namespace SpaceApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class MarsRoverPhotosController : ControllerBase
+    public class MarsRoverPhotosController: ControllerBase
     {
         [HttpGet("getMarsPhotos")]
 
