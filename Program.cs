@@ -25,12 +25,14 @@ builder.Services.AddSingleton<IAmazonDynamoDB>(client);
 builder.Services.AddSingleton<IDynamoDBContext, DynamoDBContext>();
 
 
-builder.Services.AddSingleton<DynamoDBClient>(); // під'єднання клієнту для роботи з БД
+builder.Services.AddSingleton<APODDynamoDBClient>(); // під'єднання клієнту для роботи з БД
+builder.Services.AddSingleton<MarsPhotoDynamoDBClient>(); // під'єднання клієнту для роботи з БД
+
 
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+//Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
