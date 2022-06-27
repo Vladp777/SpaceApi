@@ -1,36 +1,31 @@
-﻿using Amazon.DynamoDBv2;
-using Amazon.DynamoDBv2.Model;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
 using SpaceApi.Clients;
-using SpaceApi.Extensions;
 using SpaceApi.Model;
 
 namespace SpaceApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class DynamoDBController : ControllerBase
+    public class ApodDBController : ControllerBase
     {
-        private readonly DynamoDBClient _dynamoDataBaseClient;
+        private readonly APODDynamoDBClient _dynamoDataBaseClient;
 
-        public DynamoDBController(DynamoDBClient dynamoDataBaseClient)
+
+        public ApodDBController(APODDynamoDBClient dynamoDataBaseClient)
         {
             _dynamoDataBaseClient = dynamoDataBaseClient;
+
         }
+ 
 
+        #region ForAPOD
 
-        [HttpGet("getInfoAboutItemFromDB")]
+        [HttpGet("getInfoAboutAPODFromDB")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Get_Data_from_DB(int userID, int messageID)
+        public async Task<IActionResult> Get_Data_from_DB(int userID, string url)
         {
-            var result = await _dynamoDataBaseClient.GetInfoAboutUserFavourites(userID, messageID);
+            var result = await _dynamoDataBaseClient.GetInfoAboutUserFavourites(userID, url);
 
             if (result == null)
             {
@@ -40,17 +35,18 @@ namespace SpaceApi.Controllers
             var DB_response = new DB_object
             {
                 userID = result.userID,
-                messageID = result.messageID,
+                //messageID = result.messageID,
                 title = result.title,
                 explanation = result.explanation,
-                data = result.data,
-                url = result.url
+                date = result.date,
+                url = result.url,
+                media_type = result.media_type
             };
 
             return Ok(DB_response);
         }
     
-        [HttpGet("getAllUserFavouritesFromDB")]
+        [HttpGet("getAllUserFavouriteAPODsFromDB")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get_All_user_favourites_from_DB(int userID)
@@ -66,11 +62,11 @@ namespace SpaceApi.Controllers
                 .Select(i => new APOD()
                 {
                     title = i.title,
-                    date = i.data,
+                    date = i.date,
                     explanation = i.explanation,
                     url = i.url,
                     hdurl = "",
-                    media_type = ""
+                    media_type = i.media_type
                 })
                 .ToList();
 
@@ -78,20 +74,20 @@ namespace SpaceApi.Controllers
         }
 
 
-        [HttpPost("addFavouriteToDB")]
+        [HttpPost("addFavouriteAPODToDB")]
         public async Task<IActionResult> Add_item_to_favourites_database(DB_object db_object)
         {
-            var data = new DB_object
-            {
-                userID = db_object.userID,
-                messageID = db_object.messageID,
-                title = db_object.title,
-                explanation = db_object.explanation,
-                data = db_object.data,
-                url = db_object.url
-            };
+            //var data = new DB_object
+            //{
+            //    userID = db_object.userID,
+            //    //messageID = db_object.messageID,
+            //    title = db_object.title,
+            //    explanation = db_object.explanation,
+            //    date = db_object.date,
+            //    url = db_object.url
+            //};
 
-            var result = await _dynamoDataBaseClient.PostDataToDynamoDB(data);
+            var result = await _dynamoDataBaseClient.PostDataToDynamoDB(db_object);
 
             if (result == false)
             {
@@ -101,13 +97,11 @@ namespace SpaceApi.Controllers
             return Ok("The item was successfully added to your 'Favourites list'");
         }
 
-
-
         
-        [HttpDelete("deleteFromDB")]
-        public async Task<IActionResult> Delete_item_fron_favourites_database(int userID, int messageID)
+        [HttpDelete("deleteAPODFromDB")]
+        public async Task<IActionResult> Delete_item_fron_favourites_database(int userID, string url)
         {
-            var result = await _dynamoDataBaseClient.DeleteDataFromDynamoDB(userID, messageID);
+            var result = await _dynamoDataBaseClient.DeleteDataFromDynamoDB(userID, url);
 
             if (result == false)
             {
@@ -124,7 +118,7 @@ namespace SpaceApi.Controllers
         // -- айді телеграм-аккаунта юзера
         // спочатку перевіряє наявність елементів у даного юзера
         // якщо елементи є, то видаляє їх
-        [HttpDelete("deleteAllUserDataFromDB")]
+        [HttpDelete("deleteAllUserAPODsFromDB")]
         public async Task<IActionResult> Delete_ALL_user_items_from_favourites_database(int userID)
         {
             var result = await _dynamoDataBaseClient.DeleteAllUserDataFromDynamoDB(userID);
@@ -136,5 +130,9 @@ namespace SpaceApi.Controllers
 
             return Ok("All items were successfully deleted from your 'Favourites list'");
         }
+
+
+        #endregion
+
     }
 }

@@ -8,6 +8,8 @@
         public static string accesskey = "AKIA4EBDDFLZSBCD43XC";
         public static string secretkey = "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";
 
-        public static string TableName = "favourite_table";
+        public static string APODTableName = "favourite_table";
+        public static string MarsPhotoTableName = "favourite-mars-photo";
+
     }
 }

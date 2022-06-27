@@ -18,18 +18,34 @@ namespace SpaceApi.Clients
             _httpClient.BaseAddress = new Uri(_adrres);
         }
 
-        public async Task<APOD> GetAPODAsync()
+        public async Task<APOD?> GetAPODAsync()
         {
             var response = await _httpClient.GetAsync($"/planetary/apod?api_key={_apikey}");
             var content = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<APOD>(content);
+            //if (result == null)
+            //{
+            //    return null;
+            //}
+            //string url = result.url;
+           
+            //var array = url.Split("//");
+
+            //result.url = array[1];
+
             return result;
         }
-        public async  Task<APOD> GetAPODAsync(string date)
+        public async  Task<APOD?> GetAPODAsync(string date)
         {
             var response = await _httpClient.GetAsync($"/planetary/apod?api_key={_apikey}&date={date}");
             var content = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<APOD>(content);
+            //string url = result.url;
+
+            //var array = url.Split("//");
+
+            //result.url = array[1];
+   
             return result;
         }
         public async Task<MarsRoverPhotos> GetRoverPhotosAsync(string date, string camera = "all", int page = 1)
