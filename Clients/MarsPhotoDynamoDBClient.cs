@@ -184,6 +184,10 @@ namespace SpaceApi.Clients
             //{
             //    check_item.Add(item.ToClass<DB_object>());
             //}
+            if (check_item == null)
+            {
+                return false;
+            }
 
             foreach (MarsPhotoDB db_object in check_item)
             {
@@ -193,7 +197,7 @@ namespace SpaceApi.Clients
                     Key = new Dictionary<string, AttributeValue>
                     {
                         {"userID", new AttributeValue{N = $"{db_object.userID}" } },
-                        {"url", new AttributeValue{N = $"{db_object.url}" } }
+                        {"url", new AttributeValue{S = $"{db_object.url}" } }
                     }
                 };
 
